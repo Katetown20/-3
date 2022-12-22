@@ -12,7 +12,6 @@ def triangle(a,b,c):
 triangle(a,b,c)
 
 # задача 2
-#Не знаю как правильно решить, программа не работает. Идей вообще нет
 s = '''Было просто пасмурно, дуло с севера
 А к обеду насчитал сто градаций серого.
 Так всегда первого ноль девятого
@@ -24,24 +23,51 @@ s = '''Было просто пасмурно, дуло с севера
 Серым облакам наплевать на нас
 Если знаешь как жить - живи
 Ты хотела плыть как все - так плыви!'''
-def short(s):
-    word_list = []
-    for word in s:
-        if len(word) >5:
-            word_list.append(word)
-            return print(word_list)
 
-short(s)
+word_list = []
+
+sunb_1 = ','
+for i in s:
+    if i in sunb_1:
+        s = s.replace(i, '')
+
+sunb_2 = '.'
+for i in s:
+    if i in sunb_2:
+        s = s.replace(i, '')
+
+sunb_3 = '...'
+for i in s:
+    if i in sunb_3:
+        s = s.replace(i, '')
+
+sunb_4 = '-'
+for i in s:
+    if i in sunb_4:
+        s = s.replace(i, '')
+
+sunb_5 = '!'
+for i in s:
+    if i in sunb_5:
+        s = s.replace(i, '')
+
+
+s_list = s.split()
+
+def short_word(s):
+    for i in s_list:
+        if len(i) < 5:
+            word_list.append(i)
+            word = ', '.join(word_list)
+    return print(word)
+
+short_word(s)
 
 # задача 3
-#Не знаю как правильно решить, программа не работает. Идей вообще нет
-l = [56, 9, 11,2]
-def maxn(l):
-    m = []
-    for maxnum in l:
-        maxnum = str(max(l))
-        m = ''.join(maxnum)
-        return print(maxnum)
+l= [56, 9, 11,2]
+#l = [61,228,9]
+def join(l):
+    print(''.join((sorted([str(x) for x in l], reverse=True))))
 
-maxn(l)
+join(l)
 
